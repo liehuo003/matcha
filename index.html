@@ -180,15 +180,7 @@
       <h2>Tell us your volume and application</h2>
       <p>We reply within one business day with landed cost estimates, MOQ guidance, and tailored samples.</p>
     </div>
-    <form
-      class="contact-form"
-      id="inquiry-form"
-      action="https://formsubmit.co/ajax/liehuo003@gmail.com"
-      method="POST"
-    >
-      <input type="hidden" name="_subject" value="New Matcha B2B Inquiry" />
-      <input type="hidden" name="_template" value="table" />
-      <input type="hidden" name="_captcha" value="false" />
+    <form class="contact-form">
       <label>
         Company Name
         <input type="text" name="company" placeholder="Your company" required />
@@ -207,7 +199,6 @@
       </label>
       <button type="submit" class="btn primary full">Get Quote</button>
       <p class="privacy">We follow GDPR &amp; CCPA. Documents available upon request.</p>
-      <p class="form-status" role="status" aria-live="polite"></p>
     </form>
   </section>
 
@@ -222,35 +213,5 @@
       <a href="mailto:sales@matchadirect.com">sales@matchadirect.com</a>
     </div>
   </footer>
-  <script>
-    const form = document.getElementById('inquiry-form');
-    const statusEl = document.querySelector('.form-status');
-
-    if (form && statusEl) {
-      form.addEventListener('submit', async (event) => {
-        event.preventDefault();
-        statusEl.textContent = 'Sending your inquiry...';
-        statusEl.classList.remove('error');
-
-        try {
-          const formData = new FormData(form);
-          const response = await fetch(form.action, {
-            method: 'POST',
-            body: formData,
-          });
-
-          if (!response.ok) {
-            throw new Error('Failed to send');
-          }
-
-          form.reset();
-          statusEl.textContent = 'Thanks! Your request has been sent to our sales team.';
-        } catch (error) {
-          statusEl.textContent = 'Something went wrong. Please try again or email sales@matchadirect.com directly.';
-          statusEl.classList.add('error');
-        }
-      });
-    }
-  </script>
 </body>
 </html>
