@@ -3,10 +3,22 @@
 A lightweight, static landing page that promotes a premium matcha powder supply chain for B2B buyers in the US and EU. The site
 is optimized for Google Ads traffic and highlights certifications, production capacity, and a GDPR-compliant inquiry form.
 
-## Development
+## Previewing the landing page
 
-This project is fully static. Open `index.html` in any modern browser to preview the landing page. Styles are defined in
-`styles.css` with a single custom font import (Inter) from Google Fonts.
+This project is fully static, so you have two easy ways to preview it:
+
+1. **Open the file directly** – double-click `index.html` (or drag it into a browser window). All assets are local, so it
+   renders immediately.
+2. **Serve it locally** – if you prefer a URL preview (useful when testing redirects, fonts, or analytics snippets), run a
+   lightweight server from the repository root:
+
+   ```bash
+   python3 -m http.server 8000
+   ```
+
+   Then visit `http://localhost:8000/index.html` in your browser. Stop the server with `Ctrl+C` when finished.
+
+Styles are defined in `styles.css` with a single custom font import (Inter) from Google Fonts.
 
 ## Syncing with GitHub
 
