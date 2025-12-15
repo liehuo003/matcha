@@ -1,44 +1,25 @@
-# Matcha B2B Landing Page
+# Sailtik B2B Matcha Homepage
 
-A lightweight, static landing page that promotes a premium matcha powder supply chain for B2B buyers in the US and EU. The site
-is optimized for Google Ads traffic and highlights certifications, production capacity, and a GDPR-compliant inquiry form.
+Single-page B2B homepage for Sailtik built with Next.js (App Router) and Tailwind CSS.
 
-## Previewing the landing page
-
-This project is fully static, so you have two easy ways to preview it:
-
-1. **Open the file directly** – double-click `index.html` (or drag it into a browser window). All assets are local, so it
-   renders immediately.
-2. **Serve it locally** – if you prefer a URL preview (useful when testing redirects, fonts, or analytics snippets), run a
-   lightweight server from the repository root:
-
-   ```bash
-   python3 -m http.server 8000
-   ```
-
-   Then visit `http://localhost:8000/index.html` in your browser. Stop the server with `Ctrl+C` when finished.
-
-Styles are defined in `styles.css` with a single custom font import (Inter) from Google Fonts.
-
-## Syncing with GitHub
-
-Use the helper script below to synchronize this working tree with the latest code hosted on GitHub.
+## Getting Started
 
 ```bash
-./sync_github.sh https://github.com/your-org/your-repo.git
+npm install
+npm run dev
 ```
 
-The script will:
+Visit http://localhost:3000 to view the site.
 
-1. Add or update the `origin` remote with the provided GitHub URL (or use an existing remote).
-2. Fetch the latest commits.
-3. Check out the `main` branch (or create it if it does not exist locally).
-4. Fast-forward merge to match `origin/main`.
+## Project Structure
 
-You can customize the behavior with environment variables:
+- `app/page.tsx` – main homepage composed of section components.
+- `components/` – reusable UI sections.
+- `app/api/contact/route.ts` – contact form endpoint that logs leads and attempts to store them in `data/leads.json` (dev-friendly).
+- `data/leads.json` – local lead storage used in development where file writes are allowed.
 
-- `REMOTE_NAME`: Git remote to sync (default: `origin`).
-- `TARGET_BRANCH`: Branch to track (default: `main`).
-- `REMOTE_URL`: Provide the GitHub URL via environment variable instead of a positional argument.
+## Notes
 
-Run `./sync_github.sh --help` for additional details.
+- Form submissions return `{ success: true }` and display a success message in the UI.
+- The design avoids pricing, MOQ numbers, and “free sample” messaging per requirements.
+- Vercel-friendly: if file writes are blocked, leads are logged to the server console.
